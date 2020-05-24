@@ -1,0 +1,6 @@
+framework module Pods_ReportReserch {
+  umbrella header "Pods-ReportReserch-umbrella.h"
+
+  export *
+  module * { export * }
+}

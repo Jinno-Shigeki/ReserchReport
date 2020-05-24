@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -71,15 +71,39 @@
 		55691B07247A5711001CB127 /* ReportReserch */ = {
 			isa = PBXGroup;
 			children = (
+				55691B1F247A6BD0001CB127 /* Presenter */,
+				55691B1E247A6BC6001CB127 /* View */,
+				55691B1C247A6B9D001CB127 /* Model */,
 				55691B08247A5711001CB127 /* AppDelegate.swift */,
 				55691B0A247A5711001CB127 /* SceneDelegate.swift */,
-				55691B0C247A5711001CB127 /* ViewController.swift */,
-				55691B0E247A5711001CB127 /* Main.storyboard */,
 				55691B11247A5714001CB127 /* Assets.xcassets */,
 				55691B13247A5714001CB127 /* LaunchScreen.storyboard */,
 				55691B16247A5714001CB127 /* Info.plist */,
 			);
 			path = ReportReserch;
+			sourceTree = "<group>";
+		};
+		55691B1C247A6B9D001CB127 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55691B1E247A6BC6001CB127 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55691B0C247A5711001CB127 /* ViewController.swift */,
+				55691B0E247A5711001CB127 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55691B1F247A6BD0001CB127 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		59D9E6427CCE172EED0547D4 /* Pods */ = {
@@ -88,7 +112,6 @@
 				3F75E3E0048ED117FED1AF47 /* Pods-ReportReserch.debug.xcconfig */,
 				5AA2DA0A162244BDDE365B85 /* Pods-ReportReserch.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
