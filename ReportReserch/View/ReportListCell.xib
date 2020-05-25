@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ReportListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportListCell" rowHeight="65" id="KGk-i7-Jjw" customClass="ReportListCell" customModule="ReportReserch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="論文タイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-j5-rho">
+                        <rect key="frame" x="20" y="5" width="310" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="著者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anH-LM-STj">
+                        <rect key="frame" x="20" y="44" width="310" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="anH-LM-STj" secondAttribute="bottom" constant="5" id="5y9-qT-32f"/>
+                    <constraint firstItem="anH-LM-STj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aLQ-j5-rho" secondAttribute="bottom" constant="5" id="9WF-yf-Th2"/>
+                    <constraint firstItem="aLQ-j5-rho" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RCx-bb-9an"/>
+                    <constraint firstItem="anH-LM-STj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Xks-4R-EvZ"/>
+                    <constraint firstItem="aLQ-j5-rho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="c3n-n8-8no"/>
+                    <constraint firstAttribute="trailing" secondItem="anH-LM-STj" secondAttribute="trailing" constant="20" id="i1y-xI-Cbk"/>
+                    <constraint firstAttribute="trailing" secondItem="aLQ-j5-rho" secondAttribute="trailing" constant="20" id="qol-Uj-n8z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="autherLabel" destination="anH-LM-STj" id="vab-xu-75N"/>
+                <outlet property="reportTitleLabel" destination="aLQ-j5-rho" id="xF1-nF-sCZ"/>
+            </connections>
+            <point key="canvasLocation" x="90" y="-68"/>
+        </tableViewCell>
+    </objects>
+</document>
