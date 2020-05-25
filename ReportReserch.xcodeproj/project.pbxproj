@@ -13,6 +13,8 @@
 		55691B10247A5711001CB127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55691B0E247A5711001CB127 /* Main.storyboard */; };
 		55691B12247A5714001CB127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55691B11247A5714001CB127 /* Assets.xcassets */; };
 		55691B15247A5714001CB127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55691B13247A5714001CB127 /* LaunchScreen.storyboard */; };
+		55A99180247BA7FF001BEB1A /* ReportListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9917E247BA7FF001BEB1A /* ReportListCell.swift */; };
+		55A99181247BA7FF001BEB1A /* ReportListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A9917F247BA7FF001BEB1A /* ReportListCell.xib */; };
 		A5C267CC01342F0942095C3C /* Pods_ReportReserch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219F8081BB33A477B6AADA56 /* Pods_ReportReserch.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		55691B11247A5714001CB127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55691B14247A5714001CB127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55691B16247A5714001CB127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55A9917E247BA7FF001BEB1A /* ReportListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListCell.swift; sourceTree = "<group>"; };
+		55A9917F247BA7FF001BEB1A /* ReportListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportListCell.xib; sourceTree = "<group>"; };
 		5AA2DA0A162244BDDE365B85 /* Pods-ReportReserch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReportReserch.release.xcconfig"; path = "Target Support Files/Pods-ReportReserch/Pods-ReportReserch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,8 @@
 			children = (
 				55691B0C247A5711001CB127 /* ViewController.swift */,
 				55691B0E247A5711001CB127 /* Main.storyboard */,
+				55A9917E247BA7FF001BEB1A /* ReportListCell.swift */,
+				55A9917F247BA7FF001BEB1A /* ReportListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 				55691B15247A5714001CB127 /* LaunchScreen.storyboard in Resources */,
 				55691B12247A5714001CB127 /* Assets.xcassets in Resources */,
 				55691B10247A5711001CB127 /* Main.storyboard in Resources */,
+				55A99181247BA7FF001BEB1A /* ReportListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +240,7 @@
 				55691B0D247A5711001CB127 /* ViewController.swift in Sources */,
 				55691B09247A5711001CB127 /* AppDelegate.swift in Sources */,
 				55691B0B247A5711001CB127 /* SceneDelegate.swift in Sources */,
+				55A99180247BA7FF001BEB1A /* ReportListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
