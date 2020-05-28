@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5514F922247D1388007A9AEC /* FirstViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514F921247D1388007A9AEC /* FirstViewPresenter.swift */; };
+		5539C1B5247E893100F42E56 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539C1B4247E893100F42E56 /* ReportData.swift */; };
+		5539C1B6247E980700F42E56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55691B0C247A5711001CB127 /* ViewController.swift */; };
 		55691B09247A5711001CB127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55691B08247A5711001CB127 /* AppDelegate.swift */; };
 		55691B0B247A5711001CB127 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55691B0A247A5711001CB127 /* SceneDelegate.swift */; };
-		55691B0D247A5711001CB127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55691B0C247A5711001CB127 /* ViewController.swift */; };
 		55691B10247A5711001CB127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55691B0E247A5711001CB127 /* Main.storyboard */; };
 		55691B12247A5714001CB127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55691B11247A5714001CB127 /* Assets.xcassets */; };
 		55691B15247A5714001CB127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55691B13247A5714001CB127 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 		219F8081BB33A477B6AADA56 /* Pods_ReportReserch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReportReserch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F75E3E0048ED117FED1AF47 /* Pods-ReportReserch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReportReserch.debug.xcconfig"; path = "Target Support Files/Pods-ReportReserch/Pods-ReportReserch.debug.xcconfig"; sourceTree = "<group>"; };
 		5514F921247D1388007A9AEC /* FirstViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewPresenter.swift; sourceTree = "<group>"; };
+		5539C1B4247E893100F42E56 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		55691B05247A5711001CB127 /* ReportReserch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReportReserch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55691B08247A5711001CB127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55691B0A247A5711001CB127 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		55691B1C247A6B9D001CB127 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5539C1B4247E893100F42E56 /* ReportData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,7 +102,6 @@
 		55691B1E247A6BC6001CB127 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55691B0C247A5711001CB127 /* ViewController.swift */,
 				55691B0E247A5711001CB127 /* Main.storyboard */,
 				55A9917E247BA7FF001BEB1A /* ReportListCell.swift */,
 				55A9917F247BA7FF001BEB1A /* ReportListCell.xib */,
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5514F921247D1388007A9AEC /* FirstViewPresenter.swift */,
+				55691B0C247A5711001CB127 /* ViewController.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -240,11 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55691B0D247A5711001CB127 /* ViewController.swift in Sources */,
+				5539C1B6247E980700F42E56 /* ViewController.swift in Sources */,
 				55691B09247A5711001CB127 /* AppDelegate.swift in Sources */,
 				55691B0B247A5711001CB127 /* SceneDelegate.swift in Sources */,
 				5514F922247D1388007A9AEC /* FirstViewPresenter.swift in Sources */,
 				55A99180247BA7FF001BEB1A /* ReportListCell.swift in Sources */,
+				5539C1B5247E893100F42E56 /* ReportData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
