@@ -9,43 +9,66 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ReportListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportListCell" rowHeight="65" id="KGk-i7-Jjw" customClass="ReportListCell" customModule="ReportReserch" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ReportListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportListCell" rowHeight="72" id="KGk-i7-Jjw" customClass="ReportListCell" customModule="ReportReserch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="論文タイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-j5-rho">
-                        <rect key="frame" x="20" y="5" width="310" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="著者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anH-LM-STj">
-                        <rect key="frame" x="20" y="44" width="310" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-9T-eBo">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="72"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="論文タイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-j5-rho">
+                                <rect key="frame" x="20" y="5" width="310" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="著者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anH-LM-STj">
+                                <rect key="frame" x="20" y="45.5" width="310" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aLQ-j5-rho" firstAttribute="leading" secondItem="h6E-9T-eBo" secondAttribute="leading" constant="20" id="AED-QX-bvg"/>
+                            <constraint firstAttribute="bottom" secondItem="anH-LM-STj" secondAttribute="bottom" constant="5" id="G7l-ks-Xvf"/>
+                            <constraint firstItem="anH-LM-STj" firstAttribute="top" secondItem="aLQ-j5-rho" secondAttribute="bottom" constant="20" id="LCx-Ug-Ep9"/>
+                            <constraint firstItem="anH-LM-STj" firstAttribute="leading" secondItem="h6E-9T-eBo" secondAttribute="leading" constant="20" id="Nli-xo-UXO"/>
+                            <constraint firstAttribute="trailing" secondItem="anH-LM-STj" secondAttribute="trailing" constant="20" id="Wgo-2W-O79"/>
+                            <constraint firstAttribute="trailing" secondItem="aLQ-j5-rho" secondAttribute="trailing" constant="20" id="bQu-xM-bXJ"/>
+                            <constraint firstItem="aLQ-j5-rho" firstAttribute="top" secondItem="h6E-9T-eBo" secondAttribute="top" constant="5" id="hKD-k5-9wM"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFH-vS-nHY">
+                        <rect key="frame" x="0.0" y="72" width="350" height="5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="ZKc-oO-gAA"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="anH-LM-STj" secondAttribute="bottom" constant="5" id="5y9-qT-32f"/>
-                    <constraint firstItem="anH-LM-STj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aLQ-j5-rho" secondAttribute="bottom" constant="5" id="9WF-yf-Th2"/>
-                    <constraint firstItem="aLQ-j5-rho" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RCx-bb-9an"/>
-                    <constraint firstItem="anH-LM-STj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Xks-4R-EvZ"/>
-                    <constraint firstItem="aLQ-j5-rho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="c3n-n8-8no"/>
-                    <constraint firstAttribute="trailing" secondItem="anH-LM-STj" secondAttribute="trailing" constant="20" id="i1y-xI-Cbk"/>
-                    <constraint firstAttribute="trailing" secondItem="aLQ-j5-rho" secondAttribute="trailing" constant="20" id="qol-Uj-n8z"/>
+                    <constraint firstItem="h6E-9T-eBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="25r-g7-Y7q"/>
+                    <constraint firstItem="h6E-9T-eBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5ta-q7-5tl"/>
+                    <constraint firstAttribute="trailing" secondItem="LFH-vS-nHY" secondAttribute="trailing" id="Hrd-4c-FMC"/>
+                    <constraint firstAttribute="trailing" secondItem="h6E-9T-eBo" secondAttribute="trailing" id="SXb-4T-LP9"/>
+                    <constraint firstAttribute="bottom" secondItem="LFH-vS-nHY" secondAttribute="bottom" id="bY4-8O-Q1i"/>
+                    <constraint firstItem="LFH-vS-nHY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="obq-f8-cjk"/>
+                    <constraint firstItem="LFH-vS-nHY" firstAttribute="top" secondItem="h6E-9T-eBo" secondAttribute="bottom" id="vbB-Xn-4uV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="autherLabel" destination="anH-LM-STj" id="vab-xu-75N"/>
+                <outlet property="authorsLabel" destination="anH-LM-STj" id="E3s-te-O8Y"/>
                 <outlet property="reportTitleLabel" destination="aLQ-j5-rho" id="xF1-nF-sCZ"/>
             </connections>
-            <point key="canvasLocation" x="90" y="-68"/>
+            <point key="canvasLocation" x="89.855072463768124" y="-86.71875"/>
         </tableViewCell>
     </objects>
 </document>

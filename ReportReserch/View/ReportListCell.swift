@@ -11,7 +11,7 @@ import UIKit
 class ReportListCell: UITableViewCell {
 
     @IBOutlet weak var reportTitleLabel: UILabel!
-    @IBOutlet weak var autherLabel: UILabel!
+    @IBOutlet weak var authorsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

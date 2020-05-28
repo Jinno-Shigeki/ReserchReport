@@ -7,20 +7,23 @@
 //
 
 import UIKit
-
+protocol FirstViewProtocol {
+    func reloadData()
+}
 class FirstViewController: UIViewController {
     
-    var presenter = FirstViewPresenter()
+    var presenter: FirstViewPresenter!
     
     @IBOutlet weak var reportList: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reportList.delegate = self
         reportList.dataSource = self
         reportList.register(UINib(nibName: "ReportListCell", bundle: nil), forCellReuseIdentifier: "ReportListCell")
         searchTextField.delegate = self
+        presenter = FirstViewPresenter(view: self)
     }
 }
 //MARK: - UITableViewDelegate
@@ -28,15 +31,31 @@ extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .systemOrange
+    }
 }
 //MARK: - UITableViewDataSource
 extension FirstViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if presenter.reportArray.count == 0 {
+            return 1
+        } else {
+            return presenter.reportArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportListCell", for: indexPath) as! ReportListCell
+        cell.reportTitleLabel.text = presenter.reportArray[indexPath.row].title
+        var authorsName = ""
+        presenter.reportArray[indexPath.row].authors.forEach { (name) in
+            authorsName += (name + "  ")
+        }
+        cell.authorsLabel.text = authorsName
         return cell
     }
 }
@@ -54,3 +73,10 @@ extension FirstViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
 }
+//MARK: - FirstViewProtocol
+extension FirstViewController: FirstViewProtocol{
+    func reloadData() {
+        reportList.reloadData()
+    }
+}
+
