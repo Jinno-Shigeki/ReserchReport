@@ -10,18 +10,18 @@ import UIKit
 protocol FirstViewProtocol {
     func reloadData()
 }
-class FirstViewController: UIViewController {
+final class FirstViewController: UIViewController {
     
     var presenter: FirstViewPresenter!
     
-    @IBOutlet weak var reportList: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet private weak var reportList: UITableView!
+    @IBOutlet private weak var searchTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reportList.delegate = self
         reportList.dataSource = self
-        reportList.register(UINib(nibName: "ReportListCell", bundle: nil), forCellReuseIdentifier: "ReportListCell")
+        reportList.register(UINib(nibName: reprotListCellData.cellIdentifier1, bundle: nil), forCellReuseIdentifier: reprotListCellData.cellIdentifier1)
         searchTextField.delegate = self
         presenter = FirstViewPresenter(view: self)
         searchTextField.addTarget( self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -30,11 +30,17 @@ class FirstViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.reportData = presenter.reportArray[indexPath.row]
+        self.present(nextVC, animated: true, completion: nil)
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .systemOrange
     }
@@ -50,17 +56,13 @@ extension FirstViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellData.cellIdentifier, for: indexPath) as! ReportListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reprotListCellData.cellIdentifier1, for: indexPath) as! ReportListCell
         if presenter.reportArray.count == 0 {
-            cell.reportTitleLabel.text = CellData.titleLabel
-            cell.authorsLabel.text = CellData.autherLabel
+            cell.reportTitleLabel.text = reprotListCellData.titleLabel
+            cell.authorsLabel.text = reprotListCellData.autherLabel
         } else {
             cell.reportTitleLabel.text = presenter.reportArray[indexPath.row].title
-            var authorsName = ""
-            presenter.reportArray[indexPath.row].authors.forEach { (name) in
-            authorsName += (name + "  ")
-        }
-        cell.authorsLabel.text = authorsName
+            cell.authorsLabel.text = presenter.reportArray[indexPath.row].getAuthorsName()
         }
         return cell
     }
