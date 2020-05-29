@@ -11,7 +11,7 @@ import SwiftyJSON
 
 struct ReportData {
     let title: String
-    var authors: [String] 
+    let authors: [String]
     let reportLink: String
     let publisher: String
     let date: String
@@ -22,6 +22,14 @@ struct ReportData {
         self.publisher = json["dc:publisher"].string ?? ""
         self.date = json["dc:publisher"].string ?? ""
         self.authors = json["dc:creator"].arrayValue.map {$0["@value"].stringValue}
+    }
+    
+    func getAuthorsName() -> String {
+        var authorsName = ""
+        authors.forEach { (name) in
+            authorsName += (name + "  ")
+        }
+        return authorsName
     }
 }
 

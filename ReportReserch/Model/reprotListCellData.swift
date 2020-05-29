@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct CellData {
+struct reprotListCellData {
     static let titleLabel = "Please search."
     static let autherLabel = "Keyword: Title, Author, Publisher, Etc..."
-    static let cellIdentifier = "ReportListCell"
+    static let cellIdentifier1 = "ReportListCell"
+    static let cellIdentifier2 = "DetailTableViewCell"
+    static let noData = "No Content"
 }
