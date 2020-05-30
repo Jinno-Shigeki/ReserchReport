@@ -14,5 +14,5 @@ struct DetailTableViewCellData {
     static let publisher = "Publisher"
     static let date = "Date"
     static let reportLink = "Link"
-    static let discription = "Discription"
+    static let description = "Description"
 }

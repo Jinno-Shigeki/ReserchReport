@@ -41,7 +41,9 @@ extension DetailViewController: UITableViewDataSource {
             cell.cellTitle.text = DetailTableViewCellData.authors
             cell.contentLabel.text = reportData?.getAuthorsName()
         } else if indexPath.row == 2 {
-            cell.cellTitle.text = DetailTableViewCellData.discription
+            cell.cellTitle.text = DetailTableViewCellData.description
+            cell.contentLabel.text = reportData?.description
+            print(reportData?.description)
         } else if indexPath.row == 3 {
             cell.cellTitle.text = DetailTableViewCellData.publisher
             cell.contentLabel.text = reportData?.publisher
