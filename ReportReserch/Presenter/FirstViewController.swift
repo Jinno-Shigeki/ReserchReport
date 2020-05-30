@@ -30,11 +30,10 @@ final class FirstViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
+        let nextVC = storyboard?.instantiateViewController(identifier: "DetailVC") as! DetailViewController
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.reportData = presenter.reportArray[indexPath.row]
-        self.present(nextVC, animated: true, completion: nil)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
