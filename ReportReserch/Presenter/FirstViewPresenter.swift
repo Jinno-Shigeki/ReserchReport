@@ -26,7 +26,7 @@ class FirstViewPresenter {
             refreshData()
             startNumber = 1
         }
-        let urlString = "https://ci.nii.ac.jp/opensearch/search?appid=crUCRy1i2aOgtZxpEihA&format=json&count=   20&start=\(startNumber)&q=\(searchKey)"
+        let urlString = "https://ci.nii.ac.jp/opensearch/search?appid=crUCRy1i2aOgtZxpEihA&format=json&lang=ja&count=   20&start=\(startNumber)&q=\(searchKey)"
         if let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
             let url = URL(string: encoded){
             Alamofire.request(url, method: .get).responseJSON { [weak self](response) in

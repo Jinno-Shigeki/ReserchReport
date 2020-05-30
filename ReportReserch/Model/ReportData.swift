@@ -15,13 +15,15 @@ struct ReportData {
     let reportLink: String
     let publisher: String
     let date: String
+    let description: String
     
     init(json: JSON) {
         self.title = json["title"].string ?? "Title"
         self.reportLink = json["link"]["@id"].string ?? ""
         self.publisher = json["dc:publisher"].string ?? ""
-        self.date = json["dc:publisher"].string ?? ""
+        self.date = json["dc:date"].string ?? ""
         self.authors = json["dc:creator"].arrayValue.map {$0["@value"].stringValue}
+        self.description = json["description"].string ?? "non description"
     }
     
     func getAuthorsName() -> String {
