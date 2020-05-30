@@ -23,7 +23,7 @@ struct ReportData {
         self.publisher = json["dc:publisher"].string ?? ""
         self.date = json["dc:date"].string ?? ""
         self.authors = json["dc:creator"].arrayValue.map {$0["@value"].stringValue}
-        self.description = json["description"].string ?? "non description"
+        self.description = json["description"].string ?? "Non description"
     }
     
     func getAuthorsName() -> String {
