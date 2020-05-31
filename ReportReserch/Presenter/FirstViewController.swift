@@ -30,6 +30,7 @@ final class FirstViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard presenter.reportArray.count != 0 else {return}
         let nextVC = storyboard?.instantiateViewController(identifier: "DetailVC") as! DetailViewController
         nextVC.modalPresentationStyle = .fullScreen
         nextVC.reportData = presenter.reportArray[indexPath.row]

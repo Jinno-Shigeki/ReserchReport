@@ -24,7 +24,13 @@ class DetailViewController: UIViewController {
 }
 //MARK: - UITableViewDelegate
 extension DetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 5 {
+            let WebVC = storyboard?.instantiateViewController(identifier: "WebVC") as! WebViewController
+            WebVC.reportLink = reportData?.reportLink as! String
+            navigationController?.pushViewController(WebVC, animated: true)
+        }
+    }
 }
 //MARK: -
 extension DetailViewController: UITableViewDataSource {
@@ -43,7 +49,6 @@ extension DetailViewController: UITableViewDataSource {
         } else if indexPath.row == 2 {
             cell.cellTitle.text = DetailTableViewCellData.description
             cell.contentLabel.text = reportData?.description
-            print(reportData?.description)
         } else if indexPath.row == 3 {
             cell.cellTitle.text = DetailTableViewCellData.publisher
             cell.contentLabel.text = reportData?.publisher
