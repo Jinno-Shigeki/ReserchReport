@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Firebase
+
 protocol FirstViewProtocol {
     func reloadData()
 }
 final class FirstViewController: UIViewController {
     
     var presenter: FirstViewPresenter!
+    let userID = UserDefaults.standard.string(forKey: "userID")
     
     @IBOutlet private weak var reportList: UITableView!
     @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var tabBar: UITabBar!
+    @IBOutlet private weak var homeTab: UITabBarItem!
+    @IBOutlet private weak var bookmarkTab: UITabBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.delegate = self
         reportList.delegate = self
         reportList.dataSource = self
         reportList.register(UINib(nibName: reprotListCellData.cellIdentifier1, bundle: nil), forCellReuseIdentifier: reprotListCellData.cellIdentifier1)
@@ -26,14 +33,28 @@ final class FirstViewController: UIViewController {
         presenter = FirstViewPresenter(view: self)
         searchTextField.addTarget( self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        guard userID != nil else {
+            let createID = presenter.setID(length: 16)
+            presenter.sendUserID(userID: createID)
+            UserDefaults.standard.set(createID, forKey: "userID")
+            return
+        }
+    }
 }
 //MARK: - UITableViewDelegate
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard presenter.reportArray.count != 0 else {return}
         let nextVC = storyboard?.instantiateViewController(identifier: "DetailVC") as! DetailViewController
         nextVC.modalPresentationStyle = .fullScreen
-        nextVC.reportData = presenter.reportArray[indexPath.row]
+        if tabBar.selectedItem == bookmarkTab {
+            nextVC.bookmarkData = presenter.bookmarkArray[indexPath.row]
+            nextVC.tabNumber = 2
+        } else {
+            guard presenter.reportArray.count != 0 else {return}
+            nextVC.reportData = presenter.reportArray[indexPath.row]
+            nextVC.tabNumber = 1
+        }
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -48,23 +69,31 @@ extension FirstViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension FirstViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if presenter.reportArray.count == 0 {
-            return 1
-        } else {
-            return presenter.reportArray.count
+        guard tabBar.selectedItem == bookmarkTab else {
+            if presenter.reportArray.count == 0 {
+                return 1
+            } else {
+                return presenter.reportArray.count
+            }
         }
+        return presenter.bookmarkArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reprotListCellData.cellIdentifier1, for: indexPath) as! ReportListCell
-        if presenter.reportArray.count == 0 {
-            cell.reportTitleLabel.text = reprotListCellData.titleLabel
-            cell.authorsLabel.text = reprotListCellData.autherLabel
-        } else {
-            cell.reportTitleLabel.text = presenter.reportArray[indexPath.row].title
-            cell.authorsLabel.text = presenter.reportArray[indexPath.row].getAuthorsName()
+        guard tabBar.selectedItem == bookmarkTab else {
+            if presenter.reportArray.count == 0 {
+                cell.reportTitleLabel.text = reprotListCellData.titleLabel
+                cell.authorsLabel.text = reprotListCellData.autherLabel
+            } else {
+                cell.reportTitleLabel.text = presenter.reportArray[indexPath.row].title
+                cell.authorsLabel.text = presenter.reportArray[indexPath.row].getAuthorsName()
+            }
+            return cell
         }
-        return cell
+            cell.reportTitleLabel.text = presenter.bookmarkArray[indexPath.row].title
+            cell.authorsLabel.text = presenter.bookmarkArray[indexPath.row].authors
+            return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -91,9 +120,22 @@ extension FirstViewController: UITextFieldDelegate {
         self.view.endEditing(true)
     }
     @objc func textFieldDidChange(_ textField: UITextField) {
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.presenter.getReport(searchKey: textField.text ?? "", firstLoading: true)
+        if tabBar.selectedItem != bookmarkTab {
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+                self.presenter.getReport(searchKey: textField.text ?? "", firstLoading: true)
+            }
         }
+    }
+}
+//MARK: - UITabBarDelegate
+extension FirstViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard  item.tag == 2 else {
+            presenter.getReport(searchKey: searchTextField.text ?? "", firstLoading: false)
+            searchTextField.isHidden = false
+            return}
+        presenter.getBookmark(userID: userID!)
+        searchTextField.isHidden = true
     }
 }
 //MARK: - FirstViewProtocol

@@ -12,7 +12,8 @@ class DetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
-   
+    @IBOutlet weak var bookmarkView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

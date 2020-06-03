@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ebV-yF-xJ0">
-                                <rect key="frame" x="0.0" y="221" width="414" height="641"/>
+                                <rect key="frame" x="0.0" y="221" width="414" height="600"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -42,6 +42,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
+                            <tabBar alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGh-1d-Cn6">
+                                <rect key="frame" x="0.0" y="821" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem tag="1" title="Home" image="house.fill" catalog="system" id="wty-Sn-UI0">
+                                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="2" title="Favorite" image="star.fill" catalog="system" id="eDJ-rE-pHM">
+                                        <color key="badgeColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tabBarItem>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedImageTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -50,8 +66,11 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="gCI-vw-4E7"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookmarkTab" destination="eDJ-rE-pHM" id="Jmr-fS-gD3"/>
+                        <outlet property="homeTab" destination="wty-Sn-UI0" id="ydJ-GB-Ayw"/>
                         <outlet property="reportList" destination="ebV-yF-xJ0" id="JtP-CT-a9G"/>
                         <outlet property="searchTextField" destination="JEi-ze-H5h" id="vcS-WJ-S3q"/>
+                        <outlet property="tabBar" destination="VGh-1d-Cn6" id="Yez-Xk-qag"/>
                         <segue destination="E1T-rp-ekL" kind="show" id="seN-fu-cKI"/>
                     </connections>
                 </viewController>
@@ -92,8 +111,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="ReportResearch" id="732-hW-3G0">
                         <barButtonItem key="backBarButtonItem" title="Back" id="nPK-TZ-GNC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="G8u-LF-Uqe">
+                            <connections>
+                                <action selector="registerBookmark:" destination="E1T-rp-ekL" id="B8A-mP-3ew"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookmarkButton" destination="G8u-LF-Uqe" id="9P7-IZ-O5C"/>
                         <outlet property="detailTableView" destination="8tA-nk-wWa" id="Jpq-7g-jrn"/>
                         <segue destination="pkk-Mo-c1Y" kind="show" id="cr6-7e-cfP"/>
                     </connections>
@@ -162,10 +187,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atC-Th-CkN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+            <point key="canvasLocation" x="67" y="116"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="1920" height="1280"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>
